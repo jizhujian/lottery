@@ -581,8 +581,6 @@ function lottery() {
 
   // 保存抽奖数据
   saveData();
-  //更新剩余抽奖数目的数据显示
-  changePrize();
 
   selectCard();
 }
@@ -603,12 +601,16 @@ function saveData() {
 
   basicData.luckyUsers[type] = curLucky;
 
+  //更新剩余抽奖数目的数据显示
+  changePrize();
+
   if (currentPrize.count <= curLucky.length) {
     currentPrizeIndex--;
     if (currentPrizeIndex <= -1) {
       currentPrizeIndex = 0;
     }
     currentPrize = basicData.prizes[currentPrizeIndex];
+    changePrize();
   }
 
   if (currentLuckys.length > 0) {
