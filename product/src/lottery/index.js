@@ -12,7 +12,10 @@ import { NUMBER_MATRIX } from "./config.js";
 
 const ROTATE_TIME = 1000 * 60 * 60;
 
+// 抽奖动画
 let currentAnimate;
+// 上次点击按钮时间
+let lastClickTime = (new Date).getTime();
 
 let TOTAL_CARDS,
   btns = {
@@ -202,6 +205,15 @@ function setLotteryStatus(status = false) {
 function bindEvent() {
   document.querySelector("#menu").addEventListener("click", function(e) {
     e.stopPropagation();
+
+    // 防呆设计，2秒内只能点击1次按钮
+    const clickTime = (new Date).getTime();
+    if (clickTime - lastClickTime < 2000) {
+      addQipao("点得太快了～～");
+      return false;
+    }
+    lastClickTime = clickTime;
+
     let target = e.target.id;
     // 如果正在抽奖，则禁止一切操作
     if (isLotting) {
@@ -233,12 +245,12 @@ function bindEvent() {
           return;
         }
         password.value = "";
-        let doREset = window.confirm(
-          "是否确认重置数据，重置后，当前已抽的奖项全部清空？"
-        );
-        if (!doREset) {
-          return;
-        }
+        // let doREset = window.confirm(
+        //   "是否确认重置数据，重置后，当前已抽的奖项全部清空？"
+        // );
+        // if (!doREset) {
+        //   return;
+        // }
         addHighlight();
         resetCard();
         // 重置所有数据
@@ -395,6 +407,7 @@ function rotateBall() {
     .onUpdate(render)
     //.easing(TWEEN.Easing.Exponential.InOut)
     .start()
+    .onComplete(() => setLotteryStatus());
 }
 
 function onWindowResize() {

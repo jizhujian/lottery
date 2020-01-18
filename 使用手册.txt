@@ -5,14 +5,14 @@
 1.4. 进入product文件夹，运行npm install，再运行npm run build
 
 2. 配置
-2.1. 抽奖名单server\users.xlsx，第1行列标题工号、姓名、部门不能修改
+2.1. 抽奖名单server\data\users.xlsx，第1行列标题工号、姓名、部门不能修改
 2.2. 奖项设置、每次抽取个数server\config.js，第1个奖项特别奖即使不用也必须保留
 2.3. 奖品图片放到product\src\img文件夹下
 
 3. 运行
 3.1. 进入product文件夹，运行npm run start
 3.2. ！！！重置密码：Password1*，删除已中奖名单！！！
-3.3. 每次点击按钮，需要间隔几秒种，等待动画完成
+3.3. 防呆设计，2秒内只能点击一次按钮
 3.4. 误操作后可以按F5刷新浏览器重新加载页面
 
 4. 其他
