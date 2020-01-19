@@ -9,13 +9,13 @@
 const prizes = [
   {
     type: 0,
-    count: 100,
-    text: "总经理特别增加奖项",
-    title: ""
+    count: 1000,
+    title: "",
+    text: "特别奖"
   },
   {
     type: 1,
-    count: 150,
+    count: 20,
     text: "欢天喜地奖",
     title: "购物卡",
     img: "../img/购物卡.jpg"
@@ -24,15 +24,57 @@ const prizes = [
     type: 2,
     count: 2,
     text: "特等奖",
-    title: "电子产品",
-    img: "../img/购物卡.jpg"
+    title: "神秘大礼",
+    img: "../img/secrit.jpg"
+  },
+  {
+    type: 3,
+    count: 5,
+    text: "一等奖",
+    title: "Mac Pro",
+    img: "../img/mbp.jpg"
+  },
+  {
+    type: 4,
+    count: 6,
+    text: "二等奖",
+    title: "华为 Mate30",
+    img: "../img/huawei.png"
+  },
+  {
+    type: 5,
+    count: 7,
+    text: "三等奖",
+    title: "Ipad Mini5",
+    img: "../img/ipad.jpg"
+  },
+  {
+    type: 6,
+    count: 8,
+    text: "四等奖",
+    title: "大疆无人机",
+    img: "../img/spark.jpg"
+  },
+  {
+    type: 7,
+    count: 9,
+    text: "五等奖",
+    title: "Kindle",
+    img: "../img/kindle.jpg"
+  },
+  {
+    type: 8,
+    count: 10,
+    text: "六等奖",
+    title: "漫步者蓝牙耳机",
+    img: "../img/edifier.jpg"
   }
 ];
 
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1,15,1];
+const EACH_COUNT = [1, 5, 1, 1, 2, 3, 5, 6, 8];
 
 /**
  * 卡片公司名称标识

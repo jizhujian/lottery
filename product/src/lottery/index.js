@@ -573,6 +573,9 @@ function lottery() {
   // 当前同时抽取的数目,当前奖品抽完还可以继续抽，但是不记录数据
   let perCount = EACH_COUNT[currentPrizeIndex],
     leftCount = basicData.leftUsers.length;
+  const luckyCount = (basicData.luckyUsers[currentPrize.type] || []).length;
+  if (perCount > (currentPrize.count - luckyCount))
+    perCount = currentPrize.count - luckyCount;
 
   if (leftCount === 0) {
     addQipao("人员已抽完，现在重新设置所有人员可以进行二次抽奖！");
